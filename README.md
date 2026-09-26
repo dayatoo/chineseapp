@@ -34,6 +34,25 @@ npx expo start
 Scan the QR code with the iPhone camera to open the app in Expo Go. Your phone and computer need
 to be on the same Wi-Fi network (or run `npx expo start --tunnel`).
 
+### Without a computer running (EAS Update)
+
+The project is published to Expo as `@dayatoo/hanzi-trace`. Sign in to Expo Go as `dayatoo` and
+open it from the project's page on [expo.dev](https://expo.dev/accounts/dayatoo/projects/hanzi-trace),
+from the **Projects** list in Expo Go, or with this link:
+
+```
+exp://u.expo.dev/1104a391-9f21-4b8b-a19d-956519c13562?channel-name=preview
+```
+
+To publish a new version:
+
+```bash
+npx eas-cli@latest update --channel preview --environment preview --message "What changed"
+```
+
+`runtimeVersion` uses the `sdkVersion` policy (`exposdk:57.0.0`) because that is the runtime Expo
+Go asks for. Expo Go on iOS only opens projects owned by the signed-in account.
+
 To install it as a standalone app (for example through TestFlight for the family), build it with
 EAS: `npx eas-cli@latest build --platform ios`. This needs an Apple Developer account.
 

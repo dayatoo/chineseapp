@@ -41,6 +41,19 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "1104a391-9f21-4b8b-a19d-956519c13562"
+      }
+    },
+    "owner": "dayatoo",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/1104a391-9f21-4b8b-a19d-956519c13562"
     }
   }
 }
