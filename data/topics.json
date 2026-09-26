@@ -1,0 +1,80 @@
+[
+  {
+    "id": "numbers",
+    "name": "Numbers",
+    "emoji": "🔢",
+    "chars": "一二三四五六七八九十百千万零两半个几第号"
+  },
+  {
+    "id": "people",
+    "name": "People & Family",
+    "emoji": "👨‍👩‍👧",
+    "chars": "人我你他她们爸妈哥姐弟妹儿子女男家朋友老师生孩爷奶"
+  },
+  {
+    "id": "body",
+    "name": "Body",
+    "emoji": "🖐️",
+    "chars": "口手目耳足头心身面脸牙舌眼鼻嘴发脚腿肚背"
+  },
+  {
+    "id": "nature",
+    "name": "Nature",
+    "emoji": "🌳",
+    "chars": "日月山水火木土石田天地风雨雪云花草树林森河海江湖"
+  },
+  {
+    "id": "colours",
+    "name": "Colours",
+    "emoji": "🎨",
+    "chars": "红黄蓝绿白黑色紫灰粉金银"
+  },
+  {
+    "id": "animals",
+    "name": "Animals",
+    "emoji": "🐼",
+    "chars": "马牛羊鸟鱼虫犬狗猫猪鸡鸭龙虎兔蛇猴熊"
+  },
+  {
+    "id": "food",
+    "name": "Food & Drink",
+    "emoji": "🍜",
+    "chars": "米饭面菜肉茶水果吃喝酒汤蛋糖盐油包饺奶"
+  },
+  {
+    "id": "time",
+    "name": "Time",
+    "emoji": "⏰",
+    "chars": "年月日时分秒早晚今明昨天星期周点钟春夏秋冬"
+  },
+  {
+    "id": "actions",
+    "name": "Actions",
+    "emoji": "🏃",
+    "chars": "来去走跑看听说读写做吃喝坐站开关买卖找想"
+  },
+  {
+    "id": "places",
+    "name": "Places & Directions",
+    "emoji": "🧭",
+    "chars": "上下左右中前后里外东南西北门国城市店路京"
+  },
+  {
+    "id": "school",
+    "name": "School",
+    "emoji": "🏫",
+    "chars": "学校书字文课本笔纸问答考试班同教室汉语"
+  },
+  {
+    "id": "weather",
+    "name": "Weather",
+    "emoji": "🌦️",
+    "chars": "晴阴雨雪风云冷热暖凉气温度雷电"
+  },
+  {
+    "id": "describing",
+    "name": "Describing Words",
+    "emoji": "✨",
+    "chars": "大小多少高长短好坏新旧快慢美丽远近"
+  }
+]
