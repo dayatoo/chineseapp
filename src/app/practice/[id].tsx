@@ -57,7 +57,8 @@ export default function PracticeScreen() {
 
   return (
     <View style={{ flex: 1 }}>
-      <Stack.Screen options={{ title: lesson.data.title }} />
+      {/* No swipe-back: on iOS 26 it works from anywhere on screen, so writing could exit the page. */}
+      <Stack.Screen options={{ title: lesson.data.title, gestureEnabled: false }} />
       <LessonNav
         index={index}
         count={chars.length}
@@ -162,7 +163,10 @@ function CharacterPractice({
 
   const handleStroke = useCallback(
     (points: Point[]) => {
-      const result = matchStroke(points, character.medians, session.strokeIndex, {
+      // A stroke begun during the demo skips it, so it's for the first stroke even if this
+      // callback is from before the skip.
+      const strokeIndex = session.phase === 'demo' ? 0 : session.strokeIndex;
+      const result = matchStroke(points, character.medians, strokeIndex, {
         leniency: LENIENCY_FACTOR[settings.leniency],
         outlineVisible: settings.showOutline,
       });
@@ -180,6 +184,7 @@ function CharacterPractice({
     },
     [
       character.medians,
+      session.phase,
       session.strokeIndex,
       settings.leniency,
       settings.showOutline,
@@ -188,6 +193,7 @@ function CharacterPractice({
   );
 
   const onDemoStrokeDone = useCallback(() => dispatch({ type: 'demoStrokeDone' }), []);
+  const onStrokeBegin = useCallback(() => dispatch({ type: 'skipDemo' }), []);
 
   useEffect(() => {
     if (session.phase !== 'complete') return;
@@ -269,6 +275,7 @@ function CharacterPractice({
         session={session}
         showOutline={settings.showOutline}
         onStroke={handleStroke}
+        onStrokeBegin={onStrokeBegin}
         onDemoStrokeDone={onDemoStrokeDone}
       />
 

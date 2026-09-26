@@ -42,6 +42,8 @@ export type TracingCanvasProps = {
   showOutline: boolean;
   /** Called with a finished stroke in character coordinates. */
   onStroke: (points: Point[]) => void;
+  /** Called when a stroke starts, including during the demo (which it should end). */
+  onStrokeBegin: () => void;
   onDemoStrokeDone: () => void;
 };
 
@@ -56,6 +58,7 @@ export function TracingCanvas({
   session,
   showOutline,
   onStroke,
+  onStrokeBegin,
   onDemoStrokeDone,
 }: TracingCanvasProps) {
   const theme = useTheme();
@@ -71,7 +74,10 @@ export function TracingCanvas({
   const [feedbackIdAtStart, setFeedbackIdAtStart] = useState<number | undefined>(undefined);
   const liveIsWrong = !!feedback && !feedback.ok && feedback.id !== feedbackIdAtStart;
 
-  const handleStrokeStart = useCallback(() => setFeedbackIdAtStart(feedback?.id), [feedback?.id]);
+  const handleStrokeStart = useCallback(() => {
+    setFeedbackIdAtStart(feedback?.id);
+    onStrokeBegin();
+  }, [feedback?.id, onStrokeBegin]);
   const handleStrokeEnd = useCallback(
     (flat: number[]) => {
       if (flat.length < 4 || flatLength(flat) < MIN_STROKE_LENGTH) {
@@ -86,7 +92,8 @@ export function TracingCanvas({
   const pan = useMemo(
     () =>
       Gesture.Pan()
-        .enabled(phase === 'tracing')
+        // Writing is allowed during the demo too; the first touch stops it.
+        .enabled(phase !== 'complete')
         .minDistance(0)
         .maxPointers(1)
         .shouldCancelWhenOutside(false)
