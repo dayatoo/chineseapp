@@ -1,0 +1,264 @@
+{
+  "topics": [
+    {
+      "id": "greetings",
+      "name": "Greetings",
+      "emoji": "👋",
+      "phrases": [
+        { "zh": "你好！", "pinyin": "Nǐ hǎo!", "en": "Hello!" },
+        { "zh": "您好！", "pinyin": "Nín hǎo!", "en": "Hello! (polite)" },
+        { "zh": "早上好！", "pinyin": "Zǎoshang hǎo!", "en": "Good morning!" },
+        { "zh": "晚上好！", "pinyin": "Wǎnshang hǎo!", "en": "Good evening!" },
+        { "zh": "晚安！", "pinyin": "Wǎn'ān!", "en": "Good night!" },
+        { "zh": "再见！", "pinyin": "Zàijiàn!", "en": "Goodbye!" },
+        { "zh": "明天见！", "pinyin": "Míngtiān jiàn!", "en": "See you tomorrow!" },
+        { "zh": "一会儿见！", "pinyin": "Yíhuìr jiàn!", "en": "See you in a bit!" },
+        { "zh": "好久不见！", "pinyin": "Hǎojiǔ bú jiàn!", "en": "Long time no see!" },
+        { "zh": "你好吗？", "pinyin": "Nǐ hǎo ma?", "en": "How are you?" },
+        { "zh": "我很好，你呢？", "pinyin": "Wǒ hěn hǎo, nǐ ne?", "en": "I'm fine, and you?" },
+        { "zh": "最近怎么样？", "pinyin": "Zuìjìn zěnmeyàng?", "en": "How have you been lately?" },
+        { "zh": "欢迎你来我家！", "pinyin": "Huānyíng nǐ lái wǒ jiā!", "en": "Welcome to my home!" },
+        { "zh": "路上小心！", "pinyin": "Lùshang xiǎoxīn!", "en": "Take care on the way!" }
+      ]
+    },
+    {
+      "id": "courtesy",
+      "name": "Courtesy",
+      "emoji": "🙏",
+      "phrases": [
+        { "zh": "谢谢！", "pinyin": "Xièxie!", "en": "Thank you!" },
+        { "zh": "不客气。", "pinyin": "Bú kèqi.", "en": "You're welcome." },
+        { "zh": "对不起。", "pinyin": "Duìbuqǐ.", "en": "Sorry." },
+        { "zh": "没关系。", "pinyin": "Méi guānxi.", "en": "It doesn't matter." },
+        { "zh": "请进。", "pinyin": "Qǐng jìn.", "en": "Please come in." },
+        { "zh": "请坐。", "pinyin": "Qǐng zuò.", "en": "Please sit down." },
+        { "zh": "请喝茶。", "pinyin": "Qǐng hē chá.", "en": "Please have some tea." },
+        { "zh": "麻烦你了。", "pinyin": "Máfan nǐ le.", "en": "Sorry to trouble you." },
+        { "zh": "打扰一下。", "pinyin": "Dǎrǎo yíxià.", "en": "Excuse me." },
+        { "zh": "非常感谢！", "pinyin": "Fēicháng gǎnxiè!", "en": "Thank you very much!" },
+        { "zh": "请慢慢说。", "pinyin": "Qǐng mànmàn shuō.", "en": "Please speak slowly." },
+        { "zh": "请再说一遍。", "pinyin": "Qǐng zài shuō yí biàn.", "en": "Please say it again." },
+        { "zh": "请问，你贵姓？", "pinyin": "Qǐngwèn, nǐ guìxìng?", "en": "May I ask your surname?" },
+        { "zh": "谢谢你的帮助。", "pinyin": "Xièxie nǐ de bāngzhù.", "en": "Thank you for your help." }
+      ]
+    },
+    {
+      "id": "about-me",
+      "name": "About Me",
+      "emoji": "🙂",
+      "phrases": [
+        { "zh": "我是学生。", "pinyin": "Wǒ shì xuésheng.", "en": "I'm a student." },
+        { "zh": "我叫小明。", "pinyin": "Wǒ jiào Xiǎomíng.", "en": "My name is Xiaoming." },
+        { "zh": "认识你很高兴。", "pinyin": "Rènshi nǐ hěn gāoxìng.", "en": "Nice to meet you." },
+        { "zh": "我是中国人。", "pinyin": "Wǒ shì Zhōngguó rén.", "en": "I'm Chinese." },
+        { "zh": "我今年十岁。", "pinyin": "Wǒ jīnnián shí suì.", "en": "I'm ten years old this year." },
+        { "zh": "我住在北京。", "pinyin": "Wǒ zhù zài Běijīng.", "en": "I live in Beijing." },
+        { "zh": "我会说一点儿中文。", "pinyin": "Wǒ huì shuō yìdiǎnr Zhōngwén.", "en": "I can speak a little Chinese." },
+        { "zh": "我在学习汉语。", "pinyin": "Wǒ zài xuéxí Hànyǔ.", "en": "I'm learning Chinese." },
+        { "zh": "我喜欢画画。", "pinyin": "Wǒ xǐhuan huà huà.", "en": "I like drawing." },
+        { "zh": "我的生日是五月一号。", "pinyin": "Wǒ de shēngrì shì wǔ yuè yī hào.", "en": "My birthday is May 1st." },
+        { "zh": "我最喜欢的颜色是红色。", "pinyin": "Wǒ zuì xǐhuan de yánsè shì hóngsè.", "en": "My favourite colour is red." },
+        { "zh": "我有一只小狗。", "pinyin": "Wǒ yǒu yì zhī xiǎo gǒu.", "en": "I have a puppy." }
+      ]
+    },
+    {
+      "id": "questions",
+      "name": "Questions",
+      "emoji": "❓",
+      "phrases": [
+        { "zh": "你叫什么名字？", "pinyin": "Nǐ jiào shénme míngzi?", "en": "What's your name?" },
+        { "zh": "你是哪国人？", "pinyin": "Nǐ shì nǎ guó rén?", "en": "Which country are you from?" },
+        { "zh": "你几岁了？", "pinyin": "Nǐ jǐ suì le?", "en": "How old are you?" },
+        { "zh": "你住在哪儿？", "pinyin": "Nǐ zhù zài nǎr?", "en": "Where do you live?" },
+        { "zh": "这是什么？", "pinyin": "Zhè shì shénme?", "en": "What is this?" },
+        { "zh": "他是谁？", "pinyin": "Tā shì shéi?", "en": "Who is he?" },
+        { "zh": "为什么？", "pinyin": "Wèishénme?", "en": "Why?" },
+        { "zh": "怎么了？", "pinyin": "Zěnme le?", "en": "What's the matter?" },
+        { "zh": "你会说英语吗？", "pinyin": "Nǐ huì shuō Yīngyǔ ma?", "en": "Can you speak English?" },
+        { "zh": "这个用中文怎么说？", "pinyin": "Zhège yòng Zhōngwén zěnme shuō?", "en": "How do you say this in Chinese?" },
+        { "zh": "你明白吗？", "pinyin": "Nǐ míngbai ma?", "en": "Do you understand?" },
+        { "zh": "你喜欢做什么？", "pinyin": "Nǐ xǐhuan zuò shénme?", "en": "What do you like to do?" },
+        { "zh": "你有兄弟姐妹吗？", "pinyin": "Nǐ yǒu xiōngdì jiěmèi ma?", "en": "Do you have any brothers or sisters?" }
+      ]
+    },
+    {
+      "id": "time",
+      "name": "Time & Dates",
+      "emoji": "⏰",
+      "phrases": [
+        { "zh": "现在几点？", "pinyin": "Xiànzài jǐ diǎn?", "en": "What time is it now?" },
+        { "zh": "现在三点半。", "pinyin": "Xiànzài sān diǎn bàn.", "en": "It's half past three." },
+        { "zh": "今天星期几？", "pinyin": "Jīntiān xīngqī jǐ?", "en": "What day is it today?" },
+        { "zh": "今天星期一。", "pinyin": "Jīntiān xīngqī yī.", "en": "Today is Monday." },
+        { "zh": "今天几月几号？", "pinyin": "Jīntiān jǐ yuè jǐ hào?", "en": "What's the date today?" },
+        { "zh": "明天是周末。", "pinyin": "Míngtiān shì zhōumò.", "en": "Tomorrow is the weekend." },
+        { "zh": "我七点起床。", "pinyin": "Wǒ qī diǎn qǐchuáng.", "en": "I get up at seven." },
+        { "zh": "我们几点见面？", "pinyin": "Wǒmen jǐ diǎn jiànmiàn?", "en": "What time shall we meet?" },
+        { "zh": "等一下！", "pinyin": "Děng yíxià!", "en": "Wait a moment!" },
+        { "zh": "快点儿！", "pinyin": "Kuài diǎnr!", "en": "Hurry up!" },
+        { "zh": "来不及了！", "pinyin": "Láibují le!", "en": "There isn't enough time!" },
+        { "zh": "我明年去中国。", "pinyin": "Wǒ míngnián qù Zhōngguó.", "en": "I'm going to China next year." },
+        { "zh": "新年快乐！", "pinyin": "Xīnnián kuàilè!", "en": "Happy New Year!" },
+        { "zh": "生日快乐！", "pinyin": "Shēngrì kuàilè!", "en": "Happy birthday!" }
+      ]
+    },
+    {
+      "id": "food",
+      "name": "Food & Drink",
+      "emoji": "🍜",
+      "phrases": [
+        { "zh": "我饿了。", "pinyin": "Wǒ è le.", "en": "I'm hungry." },
+        { "zh": "我渴了。", "pinyin": "Wǒ kě le.", "en": "I'm thirsty." },
+        { "zh": "好吃！", "pinyin": "Hǎochī!", "en": "Delicious!" },
+        { "zh": "吃饭了！", "pinyin": "Chī fàn le!", "en": "Time to eat!" },
+        { "zh": "我吃饱了。", "pinyin": "Wǒ chībǎo le.", "en": "I'm full." },
+        { "zh": "我想喝水。", "pinyin": "Wǒ xiǎng hē shuǐ.", "en": "I'd like some water." },
+        { "zh": "我要一碗米饭。", "pinyin": "Wǒ yào yì wǎn mǐfàn.", "en": "I'd like a bowl of rice." },
+        { "zh": "不要辣的。", "pinyin": "Bú yào là de.", "en": "Nothing spicy, please." },
+        { "zh": "我不吃肉。", "pinyin": "Wǒ bù chī ròu.", "en": "I don't eat meat." },
+        { "zh": "服务员，点菜！", "pinyin": "Fúwùyuán, diǎn cài!", "en": "Waiter, we'd like to order!" },
+        { "zh": "有菜单吗？", "pinyin": "Yǒu càidān ma?", "en": "Is there a menu?" },
+        { "zh": "买单！", "pinyin": "Mǎidān!", "en": "The bill, please!" },
+        { "zh": "你喜欢吃什么？", "pinyin": "Nǐ xǐhuan chī shénme?", "en": "What do you like to eat?" },
+        { "zh": "我最喜欢吃饺子。", "pinyin": "Wǒ zuì xǐhuan chī jiǎozi.", "en": "Dumplings are my favourite food." }
+      ]
+    },
+    {
+      "id": "shopping",
+      "name": "Shopping",
+      "emoji": "🛍️",
+      "phrases": [
+        { "zh": "多少钱？", "pinyin": "Duōshao qián?", "en": "How much is it?" },
+        { "zh": "太贵了！", "pinyin": "Tài guì le!", "en": "That's too expensive!" },
+        { "zh": "便宜一点儿吧。", "pinyin": "Piányi yìdiǎnr ba.", "en": "Make it a bit cheaper." },
+        { "zh": "我要这个。", "pinyin": "Wǒ yào zhège.", "en": "I want this one." },
+        { "zh": "我只是看看。", "pinyin": "Wǒ zhǐshì kànkan.", "en": "I'm just looking." },
+        { "zh": "可以试试吗？", "pinyin": "Kěyǐ shìshi ma?", "en": "Can I try it on?" },
+        { "zh": "有大一点儿的吗？", "pinyin": "Yǒu dà yìdiǎnr de ma?", "en": "Do you have a bigger one?" },
+        { "zh": "有别的颜色吗？", "pinyin": "Yǒu bié de yánsè ma?", "en": "Do you have other colours?" },
+        { "zh": "一共多少钱？", "pinyin": "Yígòng duōshao qián?", "en": "How much is it altogether?" },
+        { "zh": "可以刷卡吗？", "pinyin": "Kěyǐ shuā kǎ ma?", "en": "Can I pay by card?" },
+        { "zh": "我用手机付钱。", "pinyin": "Wǒ yòng shǒujī fù qián.", "en": "I'll pay with my phone." },
+        { "zh": "这件衣服很好看。", "pinyin": "Zhè jiàn yīfu hěn hǎokàn.", "en": "This piece of clothing looks nice." },
+        { "zh": "超市在哪儿？", "pinyin": "Chāoshì zài nǎr?", "en": "Where's the supermarket?" }
+      ]
+    },
+    {
+      "id": "getting-around",
+      "name": "Getting Around",
+      "emoji": "🚕",
+      "phrases": [
+        { "zh": "厕所在哪儿？", "pinyin": "Cèsuǒ zài nǎr?", "en": "Where's the toilet?" },
+        { "zh": "往左走。", "pinyin": "Wǎng zuǒ zǒu.", "en": "Go left." },
+        { "zh": "往右拐。", "pinyin": "Wǎng yòu guǎi.", "en": "Turn right." },
+        { "zh": "一直往前走。", "pinyin": "Yìzhí wǎng qián zǒu.", "en": "Go straight ahead." },
+        { "zh": "离这儿远吗？", "pinyin": "Lí zhèr yuǎn ma?", "en": "Is it far from here?" },
+        { "zh": "我迷路了。", "pinyin": "Wǒ mílù le.", "en": "I'm lost." },
+        { "zh": "请带我去机场。", "pinyin": "Qǐng dài wǒ qù jīchǎng.", "en": "Please take me to the airport." },
+        { "zh": "在这儿停车。", "pinyin": "Zài zhèr tíng chē.", "en": "Stop here, please." },
+        { "zh": "地铁站怎么走？", "pinyin": "Dìtiě zhàn zěnme zǒu?", "en": "How do I get to the subway station?" },
+        { "zh": "我坐公共汽车去学校。", "pinyin": "Wǒ zuò gōnggòng qìchē qù xuéxiào.", "en": "I take the bus to school." },
+        { "zh": "火车几点出发？", "pinyin": "Huǒchē jǐ diǎn chūfā?", "en": "What time does the train leave?" },
+        { "zh": "我想买一张票。", "pinyin": "Wǒ xiǎng mǎi yì zhāng piào.", "en": "I'd like to buy a ticket." },
+        { "zh": "我们走路去吧。", "pinyin": "Wǒmen zǒulù qù ba.", "en": "Let's walk there." }
+      ]
+    },
+    {
+      "id": "family",
+      "name": "Family & Friends",
+      "emoji": "👪",
+      "phrases": [
+        { "zh": "这是我妈妈。", "pinyin": "Zhè shì wǒ māma.", "en": "This is my mum." },
+        { "zh": "这是我爸爸。", "pinyin": "Zhè shì wǒ bàba.", "en": "This is my dad." },
+        { "zh": "我家有四口人。", "pinyin": "Wǒ jiā yǒu sì kǒu rén.", "en": "There are four people in my family." },
+        { "zh": "我有一个哥哥。", "pinyin": "Wǒ yǒu yí ge gēge.", "en": "I have an older brother." },
+        { "zh": "我妹妹五岁。", "pinyin": "Wǒ mèimei wǔ suì.", "en": "My younger sister is five." },
+        { "zh": "他是我的好朋友。", "pinyin": "Tā shì wǒ de hǎo péngyou.", "en": "He's my good friend." },
+        { "zh": "我爱你。", "pinyin": "Wǒ ài nǐ.", "en": "I love you." },
+        { "zh": "我想你了。", "pinyin": "Wǒ xiǎng nǐ le.", "en": "I miss you." },
+        { "zh": "奶奶做的菜很好吃。", "pinyin": "Nǎinai zuò de cài hěn hǎochī.", "en": "Grandma's cooking is delicious." },
+        { "zh": "我们一起玩吧！", "pinyin": "Wǒmen yìqǐ wán ba!", "en": "Let's play together!" },
+        { "zh": "周末我去看爷爷。", "pinyin": "Zhōumò wǒ qù kàn yéye.", "en": "At the weekend I'm visiting Grandpa." },
+        { "zh": "你爸爸做什么工作？", "pinyin": "Nǐ bàba zuò shénme gōngzuò?", "en": "What does your dad do?" }
+      ]
+    },
+    {
+      "id": "feelings",
+      "name": "Feelings",
+      "emoji": "😊",
+      "phrases": [
+        { "zh": "我很高兴。", "pinyin": "Wǒ hěn gāoxìng.", "en": "I'm very happy." },
+        { "zh": "我累了。", "pinyin": "Wǒ lèi le.", "en": "I'm tired." },
+        { "zh": "我困了。", "pinyin": "Wǒ kùn le.", "en": "I'm sleepy." },
+        { "zh": "我生病了。", "pinyin": "Wǒ shēngbìng le.", "en": "I'm ill." },
+        { "zh": "我有点儿紧张。", "pinyin": "Wǒ yǒudiǎnr jǐnzhāng.", "en": "I'm a bit nervous." },
+        { "zh": "别担心。", "pinyin": "Bié dānxīn.", "en": "Don't worry." },
+        { "zh": "太好了！", "pinyin": "Tài hǎo le!", "en": "Great!" },
+        { "zh": "真有意思！", "pinyin": "Zhēn yǒu yìsi!", "en": "How interesting!" },
+        { "zh": "加油！", "pinyin": "Jiāyóu!", "en": "You can do it!" },
+        { "zh": "我不喜欢下雨天。", "pinyin": "Wǒ bù xǐhuan xià yǔ tiān.", "en": "I don't like rainy days." },
+        { "zh": "你看起来很开心。", "pinyin": "Nǐ kàn qǐlai hěn kāixīn.", "en": "You look happy." },
+        { "zh": "我今天心情很好。", "pinyin": "Wǒ jīntiān xīnqíng hěn hǎo.", "en": "I'm in a good mood today." },
+        { "zh": "没问题！", "pinyin": "Méi wèntí!", "en": "No problem!" }
+      ]
+    },
+    {
+      "id": "weather",
+      "name": "Weather",
+      "emoji": "☀️",
+      "phrases": [
+        { "zh": "今天很热。", "pinyin": "Jīntiān hěn rè.", "en": "It's hot today." },
+        { "zh": "今天很冷。", "pinyin": "Jīntiān hěn lěng.", "en": "It's cold today." },
+        { "zh": "下雨了。", "pinyin": "Xià yǔ le.", "en": "It's raining." },
+        { "zh": "下雪了！", "pinyin": "Xià xuě le!", "en": "It's snowing!" },
+        { "zh": "外面风很大。", "pinyin": "Wàimian fēng hěn dà.", "en": "It's very windy outside." },
+        { "zh": "今天天气怎么样？", "pinyin": "Jīntiān tiānqì zěnmeyàng?", "en": "What's the weather like today?" },
+        { "zh": "今天天气很好。", "pinyin": "Jīntiān tiānqì hěn hǎo.", "en": "The weather is lovely today." },
+        { "zh": "明天会下雨吗？", "pinyin": "Míngtiān huì xià yǔ ma?", "en": "Will it rain tomorrow?" },
+        { "zh": "别忘了带伞。", "pinyin": "Bié wàngle dài sǎn.", "en": "Don't forget your umbrella." },
+        { "zh": "多穿点儿衣服。", "pinyin": "Duō chuān diǎnr yīfu.", "en": "Put on some more clothes." },
+        { "zh": "我喜欢春天。", "pinyin": "Wǒ xǐhuan chūntiān.", "en": "I like spring." },
+        { "zh": "北京的秋天很美。", "pinyin": "Běijīng de qiūtiān hěn měi.", "en": "Autumn in Beijing is beautiful." }
+      ]
+    },
+    {
+      "id": "school",
+      "name": "School",
+      "emoji": "📚",
+      "phrases": [
+        { "zh": "老师好！", "pinyin": "Lǎoshī hǎo!", "en": "Hello, teacher!" },
+        { "zh": "上课了。", "pinyin": "Shàng kè le.", "en": "Class is starting." },
+        { "zh": "下课了！", "pinyin": "Xià kè le!", "en": "Class is over!" },
+        { "zh": "我明白了。", "pinyin": "Wǒ míngbai le.", "en": "I understand now." },
+        { "zh": "我不知道。", "pinyin": "Wǒ bù zhīdào.", "en": "I don't know." },
+        { "zh": "我有一个问题。", "pinyin": "Wǒ yǒu yí ge wèntí.", "en": "I have a question." },
+        { "zh": "请打开书。", "pinyin": "Qǐng dǎkāi shū.", "en": "Please open your books." },
+        { "zh": "请跟我读。", "pinyin": "Qǐng gēn wǒ dú.", "en": "Please read after me." },
+        { "zh": "这个字怎么写？", "pinyin": "Zhège zì zěnme xiě?", "en": "How do you write this character?" },
+        { "zh": "我忘了带作业。", "pinyin": "Wǒ wàngle dài zuòyè.", "en": "I forgot to bring my homework." },
+        { "zh": "今天有考试。", "pinyin": "Jīntiān yǒu kǎoshì.", "en": "There's a test today." },
+        { "zh": "汉字很有意思。", "pinyin": "Hànzì hěn yǒu yìsi.", "en": "Chinese characters are interesting." },
+        { "zh": "我每天练习写字。", "pinyin": "Wǒ měi tiān liànxí xiě zì.", "en": "I practise writing every day." }
+      ]
+    },
+    {
+      "id": "sayings",
+      "name": "Sayings",
+      "emoji": "🏮",
+      "phrases": [
+        { "zh": "一路平安！", "pinyin": "Yílù píng'ān!", "en": "Have a safe journey!" },
+        { "zh": "恭喜发财！", "pinyin": "Gōngxǐ fācái!", "en": "Wishing you prosperity!" },
+        { "zh": "身体健康！", "pinyin": "Shēntǐ jiànkāng!", "en": "Wishing you good health!" },
+        { "zh": "万事如意！", "pinyin": "Wànshì rúyì!", "en": "May all go as you wish!" },
+        { "zh": "马马虎虎。", "pinyin": "Mǎmahūhū.", "en": "So-so." },
+        { "zh": "慢慢来。", "pinyin": "Mànmàn lái.", "en": "Take your time." },
+        { "zh": "熟能生巧。", "pinyin": "Shú néng shēng qiǎo.", "en": "Practice makes perfect." },
+        { "zh": "学无止境。", "pinyin": "Xué wú zhǐjìng.", "en": "There is no end to learning." },
+        { "zh": "好好学习，天天向上。", "pinyin": "Hǎohǎo xuéxí, tiāntiān xiàngshàng.", "en": "Study well and make progress every day." },
+        { "zh": "有志者事竟成。", "pinyin": "Yǒu zhì zhě shì jìng chéng.", "en": "Where there's a will, there's a way." },
+        { "zh": "三人行，必有我师。", "pinyin": "Sān rén xíng, bì yǒu wǒ shī.", "en": "Among any three people, one can be my teacher." },
+        { "zh": "千里之行，始于足下。", "pinyin": "Qiān lǐ zhī xíng, shǐ yú zú xià.", "en": "A journey of a thousand miles begins with a single step." }
+      ]
+    }
+  ]
+}

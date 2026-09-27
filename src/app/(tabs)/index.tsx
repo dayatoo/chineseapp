@@ -91,6 +91,11 @@ export default function HomeScreen() {
         variant="secondary"
         onPress={() => router.navigate('/browse')}
       />
+      <Button
+        label="Write everyday phrases"
+        variant="secondary"
+        onPress={() => router.navigate('/phrases')}
+      />
     </Screen>
   );
 }

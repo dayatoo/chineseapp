@@ -45,6 +45,10 @@ export type TracingCanvasProps = {
   /** Called when a stroke starts, including during the demo (which it should end). */
   onStrokeBegin: () => void;
   onDemoStrokeDone: () => void;
+  /** Just shows the session: no writing. */
+  disabled?: boolean;
+  /** Highlights the border, e.g. the cell being written in a row of cells. */
+  active?: boolean;
 };
 
 /**
@@ -60,6 +64,8 @@ export function TracingCanvas({
   onStroke,
   onStrokeBegin,
   onDemoStrokeDone,
+  disabled = false,
+  active = false,
 }: TracingCanvasProps) {
   const theme = useTheme();
   const scale = VIEW / size;
@@ -93,7 +99,7 @@ export function TracingCanvas({
     () =>
       Gesture.Pan()
         // Writing is allowed during the demo too; the first touch stops it.
-        .enabled(phase !== 'complete')
+        .enabled(!disabled && phase !== 'complete')
         .minDistance(0)
         .maxPointers(1)
         .shouldCancelWhenOutside(false)
@@ -112,7 +118,7 @@ export function TracingCanvas({
         .onFinalize(() => {
           scheduleOnRN(handleStrokeEnd, points.get().slice());
         }),
-    [phase, scale, points, strokeOpacity, handleStrokeStart, handleStrokeEnd],
+    [disabled, phase, scale, points, strokeOpacity, handleStrokeStart, handleStrokeEnd],
   );
 
   // React to the verdict on the last stroke: correct strokes are replaced by the real stroke
@@ -144,7 +150,10 @@ export function TracingCanvas({
     <GestureDetector gesture={pan}>
       <View
         accessibilityLabel={`Writing area for ${character.char}`}
-        style={[styles.canvas, { width: size, height: size, borderColor: theme.grid }]}>
+        style={[
+          styles.canvas,
+          { width: size, height: size, borderColor: active ? theme.tint : theme.grid },
+        ]}>
         <Svg width={size} height={size} viewBox={`0 0 ${VIEW} ${VIEW}`}>
           <Rect x={0} y={0} width={VIEW} height={VIEW} fill={theme.paper} />
           <PracticeGrid color={theme.grid} />

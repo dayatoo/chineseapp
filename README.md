@@ -19,6 +19,10 @@ correct stroke order. Built with React Native and Expo.
 - **Custom sets.** Paste any Chinese text or search the library (by character, pinyin or
   English), then rename, reorder or remove characters. All 9,500+ characters in the database can
   be used.
+- **Phrases and sentences.** 169 everyday phrases in 13 topics (greetings, food, shopping,
+  sayings…), with pinyin and English. Write them one character at a time on the big grid, or
+  the whole phrase in a row of small grids. Switch between the two at any time. The phrase is
+  spoken when you finish, and every character you write counts toward its progress.
 - **Fully offline and private.** Everything is stored on the device.
 
 ## Running it on your iPhone or iPad
@@ -67,17 +71,19 @@ npm run format      # Prettier
 
 ### Project layout
 
-| Path                             | What it is                                                                           |
-| -------------------------------- | ------------------------------------------------------------------------------------ |
-| `src/app/`                       | Screens (Expo Router): tabs, category, lesson, practice, custom-set editor, settings |
-| `src/tracing/matcher.ts`         | Decides whether a drawn stroke matches the expected one, and why not                 |
-| `src/tracing/session.ts`         | State machine for tracing one character: demo → tracing → complete                   |
-| `src/tracing/tracing-canvas.tsx` | The writing surface: grid, outline, animations, live brush stroke                    |
-| `src/data/db.ts`                 | Queries against the bundled character database                                       |
-| `src/data/sets.ts`               | Difficulty sorting, tiers, lessons, and lesson ids                                   |
-| `src/store/`                     | On-device user data: settings, progress, custom sets                                 |
-| `data/topics.json`               | The hand-picked topic lists (edit this to add topics)                                |
-| `scripts/build-db.mjs`           | Builds `assets/db/hanzi.db` from the open data sources                               |
+| Path                                 | What it is                                                                                 |
+| ------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `src/app/`                           | Screens (Expo Router): tabs, category, lesson, practice, custom-set editor, settings       |
+| `src/tracing/matcher.ts`             | Decides whether a drawn stroke matches the expected one, and why not                       |
+| `src/tracing/session.ts`             | State machine for tracing one character: demo → tracing → complete                         |
+| `src/tracing/tracing-canvas.tsx`     | The writing surface: grid, outline, animations, live brush stroke                          |
+| `src/tracing/use-tracing-session.ts` | Stroke matching, feedback and progress for one character (shared by both practice screens) |
+| `src/data/db.ts`                     | Queries against the bundled character database                                             |
+| `src/data/sets.ts`                   | Difficulty sorting, tiers, lessons, and lesson ids                                         |
+| `src/store/`                         | On-device user data: settings, progress, custom sets                                       |
+| `data/topics.json`                   | The hand-picked topic lists (edit this to add topics)                                      |
+| `data/phrases.json`                  | The phrases, by topic (edit this to add phrases; no database rebuild needed)               |
+| `scripts/build-db.mjs`               | Builds `assets/db/hanzi.db` from the open data sources                                     |
 
 ### Rebuilding the character database
 

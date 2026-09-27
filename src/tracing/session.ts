@@ -77,3 +77,10 @@ export function sessionReducer(state: SessionState, action: SessionAction): Sess
       return state.phase === 'tracing' ? { ...state, hintId: state.hintId + 1 } : state;
   }
 }
+
+/** A session that isn't being traced: blank (outline only), or with every stroke written. */
+export const staticSession = (strokeCount: number, complete: boolean): SessionState => ({
+  ...initialSession(strokeCount, false),
+  phase: complete ? 'complete' : 'tracing',
+  strokeIndex: complete ? strokeCount : 0,
+});

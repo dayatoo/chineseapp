@@ -18,7 +18,11 @@ export type Settings = {
   speechRate: number;
   /** Say the character aloud when it's completed. */
   autoSpeak: boolean;
+  /** Phrases: trace one character at a time on a big grid, or the whole phrase in small grids. */
+  phraseMode: PhraseMode;
 };
+
+export type PhraseMode = 'single' | 'row';
 
 type SettingsStore = Settings & {
   update: (patch: Partial<Settings>) => void;
@@ -32,6 +36,7 @@ export const DEFAULT_SETTINGS: Settings = {
   haptics: true,
   speechRate: 0.8,
   autoSpeak: true,
+  phraseMode: 'single',
 };
 
 export const useSettings = create<SettingsStore>()(

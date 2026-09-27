@@ -1,23 +1,23 @@
 import { router, Stack, useLocalSearchParams } from 'expo-router';
-import { useCallback, useEffect, useReducer, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { LessonNav } from '@/components/lesson-nav';
 import { Button, EmptyState, Loading } from '@/components/ui';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
 import { getCharacter } from '@/data/db';
 import { resolveLesson } from '@/data/lessons';
 import { useAsync, useDb } from '@/data/hooks';
 import { parseLessonId } from '@/data/sets';
-import type { CharacterData, Point } from '@/data/types';
+import type { CharacterData } from '@/data/types';
 import { useTheme } from '@/hooks/use-theme';
 import { useCustomSets } from '@/store/customSets';
 import { useProgress, weakCharacters } from '@/store/progress';
 import { useSettings } from '@/store/settings';
-import { buzzComplete, buzzCorrect, buzzWrong, speak } from '@/tracing/feedback';
-import { LENIENCY_FACTOR, matchStroke, MISMATCH_MESSAGES } from '@/tracing/matcher';
-import { initialSession, sessionReducer } from '@/tracing/session';
+import { speak } from '@/tracing/feedback';
 import { TracingCanvas } from '@/tracing/tracing-canvas';
+import { useSessionStatus, useTracingSession } from '@/tracing/use-tracing-session';
 
 export default function PracticeScreen() {
   const { id, index: indexParam } = useLocalSearchParams<{ id: string; index?: string }>();
@@ -86,56 +86,6 @@ export default function PracticeScreen() {
   );
 }
 
-function LessonNav({
-  index,
-  count,
-  onPrev,
-  onNext,
-}: {
-  index: number;
-  count: number;
-  onPrev: () => void;
-  onNext: () => void;
-}) {
-  const theme = useTheme();
-  const arrow = (label: string, enabled: boolean, onPress: () => void, a11y: string) => (
-    <Pressable
-      accessibilityLabel={a11y}
-      disabled={!enabled}
-      onPress={onPress}
-      hitSlop={16}
-      style={styles.navButton}>
-      <Text style={[styles.navArrow, { color: enabled ? theme.tint : theme.border }]}>{label}</Text>
-    </Pressable>
-  );
-  return (
-    <View style={styles.nav}>
-      {arrow('‹', index > 0, onPrev, 'Previous character')}
-      <View style={styles.dots}>
-        {count <= 16 ? (
-          Array.from({ length: count }, (_, i) => (
-            <View
-              key={i}
-              style={[
-                styles.dot,
-                {
-                  backgroundColor:
-                    i === index ? theme.tint : i < index ? theme.textSecondary : theme.border,
-                },
-              ]}
-            />
-          ))
-        ) : (
-          <Text style={{ color: theme.textSecondary }}>
-            {index + 1} / {count}
-          </Text>
-        )}
-      </View>
-      {arrow('›', index < count - 1, onNext, 'Next character')}
-    </View>
-  );
-}
-
 /** Tracing one character, from demo to completion. Re-keyed by the parent to start over. */
 function CharacterPractice({
   character,
@@ -154,55 +104,13 @@ function CharacterPractice({
   const theme = useTheme();
   const insets = useSafeAreaInsets();
   const { width, height } = useWindowDimensions();
-  const settings = useSettings();
-  const recordResult = useProgress((s) => s.recordResult);
-
-  const [session, dispatch] = useReducer(sessionReducer, undefined, () =>
-    initialSession(character.strokes.length, demo ?? settings.showDemo),
-  );
-
-  const handleStroke = useCallback(
-    (points: Point[]) => {
-      // A stroke begun during the demo skips it, so it's for the first stroke even if this
-      // callback is from before the skip.
-      const strokeIndex = session.phase === 'demo' ? 0 : session.strokeIndex;
-      const result = matchStroke(points, character.medians, strokeIndex, {
-        leniency: LENIENCY_FACTOR[settings.leniency],
-        outlineVisible: settings.showOutline,
-      });
-      if (result.ok) {
-        buzzCorrect();
-        dispatch({ type: 'strokeCorrect' });
-      } else {
-        buzzWrong();
-        dispatch({
-          type: 'strokeWrong',
-          reason: result.reason,
-          hintAfterMisses: settings.hintAfterMisses,
-        });
-      }
+  const { session, dispatch, canvasProps } = useTracingSession(character, {
+    demo,
+    onComplete: () => {
+      if (useSettings.getState().autoSpeak) speak(character.char);
     },
-    [
-      character.medians,
-      session.phase,
-      session.strokeIndex,
-      settings.leniency,
-      settings.showOutline,
-      settings.hintAfterMisses,
-    ],
-  );
-
-  const onDemoStrokeDone = useCallback(() => dispatch({ type: 'demoStrokeDone' }), []);
-  const onStrokeBegin = useCallback(() => dispatch({ type: 'skipDemo' }), []);
-
-  useEffect(() => {
-    if (session.phase !== 'complete') return;
-    recordResult(character.char, session.totalMisses);
-    buzzComplete();
-    if (useSettings.getState().autoSpeak) speak(character.char);
-    // Only when the character is completed.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [session.phase]);
+  });
+  const status = useSessionStatus(session);
 
   // Fit the canvas on screen: full width on iPhone, ~70% of the short side on iPad.
   const canvasSize = Math.floor(
@@ -216,25 +124,7 @@ function CharacterPractice({
     ),
   );
 
-  const { phase, feedback } = session;
-  let status: { text: string; color: string };
-  if (phase === 'demo') status = { text: 'Watch the stroke order…', color: theme.textSecondary };
-  else if (phase === 'complete')
-    status =
-      session.totalMisses === 0
-        ? { text: 'Perfect! No mistakes 🎉', color: theme.success }
-        : {
-            text: `Done! ${session.totalMisses} ${session.totalMisses === 1 ? 'mistake' : 'mistakes'}`,
-            color: theme.success,
-          };
-  else if (feedback && !feedback.ok && feedback.reason)
-    status = { text: `${MISMATCH_MESSAGES[feedback.reason]}. Try again.`, color: theme.error };
-  else
-    status = {
-      text: `Stroke ${session.strokeIndex + 1} of ${session.strokeCount}`,
-      color: theme.textSecondary,
-    };
-
+  const { phase } = session;
   const [pinyin, ...otherReadings] = character.pinyin.split(', ');
 
   return (
@@ -269,15 +159,7 @@ function CharacterPractice({
         </Pressable>
       </View>
 
-      <TracingCanvas
-        character={character}
-        size={canvasSize}
-        session={session}
-        showOutline={settings.showOutline}
-        onStroke={handleStroke}
-        onStrokeBegin={onStrokeBegin}
-        onDemoStrokeDone={onDemoStrokeDone}
-      />
+      <TracingCanvas {...canvasProps} size={canvasSize} />
 
       <Text style={[styles.status, { color: status.color }]} accessibilityLiveRegion="polite">
         {status.text}
@@ -333,17 +215,6 @@ function CharacterPractice({
 }
 
 const styles = StyleSheet.create({
-  nav: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: Spacing.three,
-    paddingTop: Spacing.two,
-  },
-  navButton: { width: 44, alignItems: 'center' },
-  navArrow: { fontSize: 34, fontWeight: '300' },
-  dots: { flexDirection: 'row', gap: 6, alignItems: 'center' },
-  dot: { width: 8, height: 8, borderRadius: 4 },
   practice: { flex: 1, alignItems: 'center', gap: Spacing.three, paddingHorizontal: Spacing.three },
   info: {
     flexDirection: 'row',

@@ -17,6 +17,13 @@ export default function TabLayout() {
           md="apps"
         />
       </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="phrases">
+        <NativeTabs.Trigger.Label>Phrases</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          sf={{ default: 'text.bubble', selected: 'text.bubble.fill' }}
+          md="chat"
+        />
+      </NativeTabs.Trigger>
       <NativeTabs.Trigger name="my-sets">
         <NativeTabs.Trigger.Label>My Sets</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon sf={{ default: 'star', selected: 'star.fill' }} md="star" />

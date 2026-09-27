@@ -15,15 +15,26 @@ export type CharProgress = {
   lastPracticed: number;
 };
 
+export type PhraseProgress = {
+  /** Times the phrase has been written out in full. */
+  attempts: number;
+  /** Times it was written without a wrong stroke. */
+  clean: number;
+  lastPracticed: number;
+};
+
 export const MAX_BOX = 5;
 /** Characters in this box or above count as learned. */
 export const LEARNED_BOX = 3;
 
 type ProgressStore = {
   chars: Record<string, CharProgress>;
+  /** Keyed by the phrase text. */
+  phrases: Record<string, PhraseProgress>;
   /** Where "Continue" on the Home screen picks up. */
   lastLesson: { id: string; index: number } | null;
   recordResult: (char: string, misses: number) => void;
+  recordPhrase: (zh: string, misses: number) => void;
   setLastLesson: (id: string, index: number) => void;
   reset: () => void;
 };
@@ -38,6 +49,7 @@ export const useProgress = create<ProgressStore>()(
   persist(
     (set) => ({
       chars: {},
+      phrases: {},
       lastLesson: null,
       recordResult: (char, misses) =>
         set((state) => {
@@ -61,8 +73,22 @@ export const useProgress = create<ProgressStore>()(
             },
           };
         }),
+      recordPhrase: (zh, misses) =>
+        set((state) => {
+          const prev = state.phrases[zh] ?? { attempts: 0, clean: 0, lastPracticed: 0 };
+          return {
+            phrases: {
+              ...state.phrases,
+              [zh]: {
+                attempts: prev.attempts + 1,
+                clean: prev.clean + (misses === 0 ? 1 : 0),
+                lastPracticed: Date.now(),
+              },
+            },
+          };
+        }),
       setLastLesson: (id, index) => set({ lastLesson: { id, index } }),
-      reset: () => set({ chars: {}, lastLesson: null }),
+      reset: () => set({ chars: {}, phrases: {}, lastLesson: null }),
     }),
     { name: 'progress', storage: persistStorage, version: 1 },
   ),

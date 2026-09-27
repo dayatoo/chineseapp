@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 import { moveItem } from '../customSets';
-import { type CharProgress, nextBox, weakCharacters } from '../progress';
+import { type CharProgress, nextBox, useProgress, weakCharacters } from '../progress';
 
 const p = (box: number, attempts: number, misses: number, lastPracticed = 0): CharProgress => ({
   box,
@@ -39,5 +39,16 @@ describe('moveItem', () => {
     expect(moveItem(['a', 'b', 'c'], 0, 2)).toEqual(['b', 'c', 'a']);
     expect(moveItem(['a', 'b', 'c'], 2, 1)).toEqual(['a', 'c', 'b']);
     expect(moveItem(['a', 'b'], 0, -1)).toEqual(['a', 'b']);
+  });
+});
+
+describe('recordPhrase', () => {
+  it('counts attempts and clean attempts per phrase', () => {
+    const { recordPhrase } = useProgress.getState();
+    recordPhrase('你好！', 2);
+    recordPhrase('你好！', 0);
+    expect(useProgress.getState().phrases['你好！']).toMatchObject({ attempts: 2, clean: 1 });
+    useProgress.getState().reset();
+    expect(useProgress.getState().phrases).toEqual({});
   });
 });
